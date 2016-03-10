@@ -39,8 +39,8 @@
           <div class="collapse navbar-collapse" id="js-navbar-collapse">
 
             <div ng-controller="MainCtrl">
-              <ul class="nav navbar-nav" ng-repeat="item in items">
-                <li><a ng-href="#/{{ item }}">{{ item }}</a></li>
+              <ul class="nav navbar-nav" ng-repeat="menuItem in menuItems">
+                <li><a ng-href="#/{{ menuItem }}">{{ menuItem }}</a></li>
               </ul>
             </div>
           </div>
@@ -81,13 +81,15 @@
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/jasmine/lib/jasmine-core/jasmine.js"></script>
+    <script src="bower_components/jasmine-jquery/lib/jasmine-jquery.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/about.js"></script>
+        <script src="scripts/services/testfactory.js"></script>
         <!-- endbuild -->
 </body>
 </html>

@@ -31,6 +31,33 @@ module.exports = function (grunt) {
     // Project settings
     yeoman: appConfig,
 
+    protractor: {
+      options: {
+        // Location of your protractor config file
+        configFile: "test/protractor.conf.js",
+
+        // Do you want the output to use fun colors?
+        noColor: false,
+
+        // Set to true if you would like to use the Protractor command line debugging tool
+        // debug: true,
+
+        // Additional arguments that are passed to the webdriver command
+        args: { }
+      },
+      e2e: {
+        options: {
+          // Stops Grunt process if a test fails
+          keepAlive: false
+        }
+      },
+      continuous: {
+        options: {
+          keepAlive: true
+        }
+      }
+    },
+
     // Watches files for changes and runs tasks based on the changed files
     watch: {
       bower: {
@@ -220,7 +247,7 @@ module.exports = function (grunt) {
             }
           }
       }
-    }, 
+    },
 
     // Renames files for browser caching purposes
     filerev: {
@@ -453,7 +480,8 @@ module.exports = function (grunt) {
     'concurrent:test',
     'postcss',
     'connect:test',
-    'karma'
+    'karma',
+    'protractor:e2e'
   ]);
 
   grunt.registerTask('build', [
@@ -480,4 +508,6 @@ module.exports = function (grunt) {
     'test',
     'build'
   ]);
+
+  grunt.loadNpmTasks('grunt-protractor-runner');
 };

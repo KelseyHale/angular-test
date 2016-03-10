@@ -8,13 +8,6 @@
  * Controller of the testApp
  */
 angular.module('testApp')
-  .controller('MainCtrl', function ($scope) {
-    $scope.items = [
-      'Home',
-      'One',
-      'Two',
-      'Three',
-      'Four',
-      'Five',
-      'Six'    ];
+  .controller('MainCtrl', function ($scope, testFactory) {
+    $scope.menuItems = testFactory.getMenu();
   });
